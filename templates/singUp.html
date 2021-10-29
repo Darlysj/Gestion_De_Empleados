@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Concert+One&display=swap" rel="stylesheet">
+    <title>Chicholta::Alimentos</title>
+</head>
+<body id="body-fondo">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="message">
+                {% for message in messages %}
+                    <li > {{ message }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <section id="loginYsignUp">
+        <div class="form-content">
+            <h1>BIENVENIDO</h1>
+            {% from "macro.html" import render_singUp_form %}
+
+            <form class="form-group form_registro" id="form-singUp" action="" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                
+                {{render_singUp_form(form.id, placeholder='Nº de Identidad', class='form-control')}}
+                {{render_singUp_form(form.password, placeholder='Contraseña', class='form-control')}}
+                <button type="submit" class="btn-login">REGISTRARSE</button>
+                <br><br>
+                <a href="#">¿Estas registrado? inicia sesion</a><br><br>
+                <a href="index.html">Volver</a>
+            </form>    
+
+            
+        </div>
+    </section> 
+</body>
+</html>

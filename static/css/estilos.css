@@ -1,0 +1,410 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Bree Serif', serif;
+}
+
+
+
+ /* estilos el nav  ------------------------------------------- */
+body {
+    /* padding-top: 120px; */
+    background: #ececf0;
+    color: #FFFFFF;
+    background: rgb(114,196,242);
+    background: radial-gradient(circle, rgba(114,196,242,0.9248074229691877) 0%, rgba(31,70,121,1) 73%);
+    font-family: 'Bree Serif', serif;
+    /* font-family: 'Concert One', cursive */
+
+}
+ul{
+    list-style: none;
+}
+a{
+    white-space: nowrap;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.navbar{
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /* background: rgb(31,70,121); */
+    /* background: linear-gradient(90deg, rgba(31,70,121,1) 17%, rgba(185,226,8,1) 58%, rgba(185,226,8,0.06766456582633051) 100%); */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) .5fr .5fr;
+    justify-items: center;
+}
+
+.navbar > div {
+    align-self: center;
+}
+
+.logo{
+    max-width: 180px;
+}
+.button-nav {
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+.navbar a {
+    white-space: nowrap;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px 16.5px;
+    line-height: 1.25rem;
+    display: block;
+    font-size: 18px;
+}
+.nav:hover{
+    background: #FFFFFF;
+    color: #1f4679;
+    border-radius: 4px;
+}
+.button-nav:focus{
+    background: #b9e259;
+    color: #1f4679;
+}
+
+button {
+    border-radius: 4px;
+    border: 0;
+    width: 300px;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin: 20px 0;
+    padding: 8px 25px;
+    background: #FFFFFF;
+    cursor: pointer;
+    color: #000;
+    text-align: center;
+}
+button:hover {
+    background: #6da7f3;
+    color: #FFFFFF;
+}
+
+footer{
+    padding: 10px 0;
+    text-align: center;
+} 
+ 
+ /* estilos de inicio ----------------------------------------------*/
+section#contenedor{
+    padding: 64px 100px;   
+}
+
+section#contenedor img{
+    width: 400px; 
+    margin: 30px 60px;
+    border-radius: 10px;  
+    box-shadow: 1px 2px 5px 0 #b4b4b6;
+}
+
+section{
+    margin: 30px 0;
+    
+}
+section#contenedor h1{
+    text-align: center;
+    color: #FFFFFF;
+    padding: 10px 0;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.nosotros-content, .mision-content, .vision-content, .valores-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
+}
+
+section#contenedor p {
+    align-items: center;
+    margin: 50px 0;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+
+ /* estilos de empleado  -----------------------------------------------------------*/
+
+.contenedor-datos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px; 
+    padding: 20px 60px;
+    grid-template-areas: "head section"  
+                        "aside aside";
+}
+.contenedor-datos h3 {
+    text-align: center;
+    padding: 10px ;
+    color: #FFFFFF;
+    background: #1f4679;
+    border-radius: 6px;
+}
+.personales { grid-area: head; padding: 10px }
+.corporativos { grid-area: section; padding: 10px }
+
+.personales, .corporativos, .clasificacion, .desempeño{
+    background: #FFFFFF;
+    border-radius: 6px ;
+    box-shadow: 1px 2px 4px 0 #b4b4b6;
+}
+
+.comentario {
+    padding: 20px 60px;
+    text-align: center;
+}
+.clasificacion, .desempeño{
+    padding: 10px;
+}
+.desempeño p, .clasificacion p {
+    text-align: center;
+    margin: 20px 60px;
+}
+
+.star{
+    text-align: center;
+    font-size: 60px;
+    color: #f1ce08;
+
+}
+
+
+textarea {
+    height: 200px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 20px;
+    border: 0;
+    border-bottom: 2px solid rgb(185, 226, 89);
+    overflow: hidden;
+    color: rgba(0,0,0,0.72);
+    box-sizing: border-box;
+    font-weight: 400;
+    margin-bottom: 25px;
+    min-height: 90px;
+    white-space: pre-wrap;
+    width: 100%;
+    outline: none;
+    resize: none;
+    text-align: justify;
+    
+}
+
+ /* estilos de login  y signUp-------------------------- */
+#body-fondo{
+    /* background: #1f4679; */
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0,0,0,1);
+    background-image:url(/static/img/login.jpg);
+    max-width: 100%;
+}
+section#loginYsignUp > div{
+    position: relative;
+    left: 35%;
+    text-align: center;
+    height: auto;
+}
+
+section#loginYsignUp {
+    padding: 65px ;  
+    align-items: center; 
+    text-align: center;  
+    margin: 0;  
+}
+section#loginYsignUp h1{
+    padding: 40px 0; 
+    font-size: 25px; 
+    letter-spacing: 2px;  
+}
+
+.form-content{
+    background: rgb(114,196,242);
+    background: linear-gradient(328deg, rgba(114,196,242,0.7455357142857143) 0%, rgba(31,70,121,0.9780287114845938) 36%);
+    width: 350px;
+    text-align: center;
+    box-shadow: 1px 2px 3px 0 #000;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    border-radius: 6px;
+}
+
+ input{
+    border-radius: 2px;
+    border: 0;
+    font-size: 16px;
+    height: 25px;
+    line-height: 1.625rem;
+    padding: 0 20px;
+    outline: none;
+    border: 1px solid #b4b4b6;
+}
+
+#loginYsignUp input{
+    border-radius: 4px;
+    border: 0;
+    width: 250px;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin: 20px 0;
+    padding: 8px 25px;
+}
+
+select {
+    border-radius: 4px;
+    border: 0;
+    font-size: 16px;
+    height: 25px;
+    margin: 0 5px;
+    line-height: 1.625rem;
+    padding: 0 20px;
+    outline: none;
+}
+
+ 
+/* estilos admin----------------------------- */
+.navAdmin{
+    border-bottom: 2px solid #FFFFFF;
+}
+.navAdmin a {
+  background-color: #FFFFFF;
+  color: #000;
+  border: none;
+  border-radius: 3px 3px 0 0;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+.navAdmin a:hover {
+  background-color: #6da7f3;
+}
+
+.navAdmin a.active {
+  background-color: #6da7f3;
+}
+
+.data-registro > div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 20px;
+    align-items: center;
+}
+
+.search{
+    display: flex;
+    padding: 20px;
+    margin: 30px 0;
+}
+.search input{
+    height: 25px;
+    padding: 0 20px;
+    font-size: 1rem;
+    outline: none;
+}
+#btnSearch{
+    padding: 0;
+    margin:0;
+    width: 50px;
+    height: 27px;
+    border-radius: 0 4px 4px 0;
+    align-items: center;
+}
+.data-editar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+.message li{
+    padding: 10px;
+    background: rgb(31,70,121);
+    background: linear-gradient(90deg, #1f4679 7%, #cef02f 36%, #1f4679 100%);
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Dasboard  ---------------*/
+
+
+.tittleDash{
+    padding: 10px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-align: center;  
+    display: grid;
+    grid-template-columns: .5fr 2fr .5fr;
+    text-align: center;
+    align-items: center;
+}
+.contenedor img {
+    width: 80px;
+    height: auto;
+}
+.contenedor{
+    /* width: 100%; */
+    padding: 40px 64px;
+    display: grid;
+    grid-template-columns: .5fr 2fr;
+    gap: 50px;   
+    
+}
+
+.banner-dash{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+.banner-rigth{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.contenedor-dash{
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 20px;
+    /* width: 30%; */
+}
+.card {
+    border-radius: 10px;
+    height: 80px;
+    max-height: 80px;
+    font-weight: bold;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background: #FFFFFF;
+}
+.active{
+    background: #91bdf7;
+} 
+.card h3{
+    font-size: 60px;
+}
+.texto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    color: #1f4679;
+}
+.textoGrafica {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    color: #1f4679;
+}
+

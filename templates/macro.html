@@ -1,0 +1,46 @@
+{% macro render_login_form(field) %}
+    <div>
+       {{ field.label}}
+       {{ field(**kwargs)|safe }}
+
+        {% if field.errors %}
+            <ul class=errors>
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div> 
+{% endmacro %}
+
+
+{% macro render_singUp_form(field) %}
+    <div>
+       {{ field.label}}
+       {{ field(**kwargs)|safe }}
+
+        {% if field.errors %}
+            <ul class=errors>
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div> 
+{% endmacro %}
+
+
+{% macro render_registro_form(field) %}
+    <div>
+       {{ field.label}}
+       {{ field(**kwargs)|safe }}
+       
+        {% if field.errors %}
+            <ul class=errors>
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div> 
+{% endmacro %}

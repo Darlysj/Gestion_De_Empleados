@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chicholta::Alimentos</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  <script src="https://kit.fontawesome.com/aa9ef6e091.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Concert+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="message">
+        {% for message in messages %}
+          <li > {{ message }} </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <!-- si el user es admin  -->
+  {% if session['tipo_user']== 2 %}
+  <section>
+    <div><a href="login.html" style="margin: 10px;">Cambiar de Usuario</a></div><br><br>
+    <nav  class="navAdmin">
+      <a href="consultar.html">Consultar</a> 
+      <a href="registrar.html" >Registrar</a>
+      <a href="editar.html" class="active">Editar</a>
+      <a href="eliminar.html">Eliminar</a>
+      <a href="desempeño.html">Desempeño</a>
+    </nav>
+  </section>
+
+
+  <section>
+    {% from "macro.html" import render_registro_form %} 
+
+    <form action="" method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="data-registro">
+        <div style="color: rgb(189, 8, 8);">Todos los campos son requeridos</div>
+        {{render_registro_form(form.id, class='form-control form-search', placeholder='Digite ID del Empleado')}}
+        {{render_registro_form(form.nombre, class='form-control')}}
+        {{render_registro_form(form.apellido, class='form-control')}}
+        {{render_registro_form(form.email, class='form-control')}}
+        {{render_registro_form(form.direccion, class='form-control')}}
+        {{render_registro_form(form.ciudad, class='form-control')}}
+        {{render_registro_form(form.pais, class='form-control')}}
+        {{render_registro_form(form.telefono, class='form-control')}}
+        {{render_registro_form(form.tipo_Contrato, class='form-control')}}
+        {{render_registro_form(form.fecha_De_Ingreso, class='form-control')}}
+        {{render_registro_form(form.terminacion_Contrato, class='form-control')}}
+        {{render_registro_form(form.cargo, class='form-control')}}
+        {{render_registro_form(form.dependencia, class='form-control')}}
+        {{render_registro_form(form.salario, class='form-control')}}
+      </div>
+      <button type="submit" id="btnEditar">Editar</button>
+    </form> 
+  </section>
+{% endif %}
+
+  <!-- si es superadmin  -->
+  {% if session['tipo_user']== 3 %}
+  <section>
+    <div class="tittleDash"> 
+      <small><a href="login.html">Cambiar de Usuario</a></small>
+      <div><h1>DASHBOARD</h1></div>   
+      <div><i class="fas fa-user"> {{ session['usuario'] }} </i></div>                    
+    </div>
+
+    <div class="contenedor">
+      <div class="contenedor-dash">
+          <div class="card">
+              <div class="texto" >
+                  <img src="/static/img/empleados.png" alt="">
+                 <a href="consultar.html" style="color: #1f4679;">Consultar</a>
+              </div>
+          </div>   
+          <div class="card">
+              <div class="texto" >
+                  <img src="/static/img/editar-archivo.png" alt="">
+                  <a href="registrar.html" style="color: #1f4679;">Registrar</a>
+                  
+              </div>
+          </div>
+          <div class="card active">
+             <div class="texto" >
+                  <img src="/static/img/archivo-de-registro.png" alt="">
+                  <a href="editar.html" style="color: #1f4679;">Editar</a>
+             </div>
+          </div>
+          <div class="card">
+              <div class="texto">
+                  <img src="/static/img/delete.png" alt="">
+                  <a href="eliminar.html" style="color: #1f4679;">Eliminar</a>
+              </div>
+          </div>
+          <div class="card">
+              <div class="texto" >
+                  <img src="/static/img/registrarse.png" alt="">
+                  <a href="desempeño.html" style="color: #1f4679;">Desempeño</a>
+              </div>
+          </div>
+          <div class="card">
+              <div class="texto">
+                  <img src="/static/img/select.png" alt="">
+                  <a href="asignarUser.html" style="color: #1f4679;">Asignar Usuarios</a>
+              </div>
+          </div>  
+      </div>
+
+
+      <div class="banner-dash">
+          <div class="banner-rigth">
+              <div class="card">
+                <div class="textoGrafica">
+                    <img src="/static/img/man.png" alt="">
+                    <h2 style="color: #1f4679;">Empleados: </h2>
+                    <h3>#{{  session['empleados'] }}</h3>
+                </div>
+              </div>
+              <div class="card">
+                  <div class="textoGrafica">
+                      <img src="/static/img/grupo.png" alt="">
+                      <h2 style="color: #1f4679;">Usuarios:</h2>
+                      <h3>#{{  session['cant_user'] }}</h3>
+                  </div>
+              </div>
+          </div>
+
+          {% from "macro.html" import render_registro_form %}
+        <div class="form">
+          <form action="" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="data-registro">
+              <div style="color: rgb(189, 8, 8);">Todos los campos son requeridos</div>
+              {{render_registro_form(form.id, class='form-control form-search', placeholder='Digite ID del Empleado')}}
+              {{render_registro_form(form.nombre, class='form-control')}}
+              {{render_registro_form(form.apellido, class='form-control')}}
+              {{render_registro_form(form.email, class='form-control')}}
+              {{render_registro_form(form.direccion, class='form-control')}}
+              {{render_registro_form(form.ciudad, class='form-control')}}
+              {{render_registro_form(form.pais, class='form-control')}}
+              {{render_registro_form(form.telefono, class='form-control')}}
+              {{render_registro_form(form.tipo_Contrato, class='form-control')}}
+              {{render_registro_form(form.fecha_De_Ingreso, class='form-control')}}
+              {{render_registro_form(form.terminacion_Contrato, class='form-control')}}
+              {{render_registro_form(form.cargo, class='form-control')}}
+              {{render_registro_form(form.dependencia, class='form-control')}}
+              {{render_registro_form(form.salario, class='form-control')}}
+            </div>
+            <button type="submit" id="btnEditar">Editar</button>
+          </form>
+         </div>
+     </div> 
+    </div>
+  </section>
+ {% endif %}
+</body>
+</html>
+
