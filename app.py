@@ -10,7 +10,6 @@ from models import Usuarios, Desempeno, Empleados, Comentarios
 
 
 
-
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 csrf = CSRFProtect()
@@ -39,6 +38,7 @@ def login():
         password = login_form.password.data
         n_identidad = login_form.id.data
 
+        # saber si el usuario existe en la tabla usuarios 
         user = Usuarios.query.filter_by(n_identidad = n_identidad).first()# consulta en la bdd
         tipo = db.session.query(Empleados.tipo_user).filter_by(id = n_identidad).first()
         # si el usuario existe en la bdd y la contaseña es la misma que esta encriptada en la bdd
@@ -68,7 +68,7 @@ def login():
 
         else:
             # sino
-            message = '¡Usuario o Contraseña incorrecta!'
+            message = 'El usuario no existe'
             flash(message)
 
         return redirect('login.html')
@@ -228,9 +228,9 @@ def Eliminar():
 
                 ).delete()
             db.session.commit()
-
+            message = '¡Enviado!'
+            flash(message)
             return render_template('eliminar.html', form=registro_form, lista = lista) 
-        
         return redirect('eliminar.html')
     return render_template('eliminar.html', form=registro_form)
 
