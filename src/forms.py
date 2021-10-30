@@ -5,7 +5,6 @@ from wtforms.fields.html5 import EmailField, DateField
 from wtforms import validators
 from wtforms.validators import DataRequired, InputRequired
 
-from models import Empleados
 
 TIPO_USER = [1,2,3]
 
